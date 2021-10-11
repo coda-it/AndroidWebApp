@@ -13,7 +13,6 @@ public class UserUsecases {
     }
 
     public void login(String login, String password) {
-        Log.d("xxx", "xxx:b");
         this.userRepository.login(login, password);
     }
 }
