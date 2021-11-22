@@ -32,12 +32,12 @@ public class Api {
             jsonBody.put("login", login);
             jsonBody.put("password", password);
             final String requestBody = jsonBody.toString();
-
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, R.string.endpoint + "/api/login",
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, this.activity.getString(R.string.endpoint) + "/api/login",
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             try {
+                                Log.i("response", response);
                                 JSONObject jsonObject = new JSONObject(response);
                             } catch (JSONException e) {
                                 Log.i("api-service", e.toString());

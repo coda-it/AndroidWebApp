@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userUsecases.login(loginTextField.getText().toString(), passwordTextField.getText().toString());
+                setContentView(R.layout.activity_posts);
             }
         });
     }
