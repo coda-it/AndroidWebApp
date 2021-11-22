@@ -37,7 +37,6 @@ public class Api {
                         @Override
                         public void onResponse(String response) {
                             try {
-                                Log.i("response", response);
                                 JSONObject jsonObject = new JSONObject(response);
                             } catch (JSONException e) {
                                 Log.i("api-service", e.toString());
