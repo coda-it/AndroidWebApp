@@ -1,7 +1,6 @@
 package com.example.androidwebapp.domain.usecases.user;
 
 import android.app.Activity;
-import android.util.Log;
 
 import com.example.androidwebapp.data.repositories.user.UserRepository;
 
