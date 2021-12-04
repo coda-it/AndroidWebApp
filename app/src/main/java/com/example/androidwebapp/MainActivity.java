@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import android.content.Intent;
+
 import android.view.View;
 
 import android.widget.Button;
@@ -34,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userUsecases.login(loginTextField.getText().toString(), passwordTextField.getText().toString());
-                setContentView(R.layout.activity_posts);
+                startActivity(new Intent(getApplicationContext(), PostsActivity.class));
+                finish();
             }
         });
     }
