@@ -5,11 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".PostsActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Posts View"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="305dp" />
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false"
+            />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

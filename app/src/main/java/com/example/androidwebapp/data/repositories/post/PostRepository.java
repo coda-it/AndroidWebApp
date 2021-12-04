@@ -1,12 +1,10 @@
 package com.example.androidwebapp.data.repositories.post;
 
+import java.util.function.Consumer;
+
 import android.app.Activity;
 
-import com.example.androidwebapp.domain.models.post.PostModel;
-
 import com.example.androidwebapp.data.services.api.Api;
-
-import java.util.function.Consumer;
 
 public class PostRepository {
     Api api;
