@@ -1,8 +1,12 @@
 package com.example.androidwebapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+
+import android.os.Build;
+import android.util.Log;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -11,14 +15,13 @@ import android.widget.ListView;
 import com.example.androidwebapp.domain.usecases.post.PostUsecases;
 import com.example.androidwebapp.domain.usecases.user.UserUsecases;
 
+import com.example.androidwebapp.domain.models.post.PostModel;
+
 public class PostsActivity extends AppCompatActivity {
     UserUsecases userUsecases;
     PostUsecases postUsecases;
 
-    ArrayList<String> listItems = new ArrayList<String>() {{
-        add("Post 1");
-        add("Post 2");
-    }};
+    ArrayList<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapter;
 
     public PostsActivity() {
@@ -26,6 +29,7 @@ public class PostsActivity extends AppCompatActivity {
         this.postUsecases = new PostUsecases(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +40,11 @@ public class PostsActivity extends AppCompatActivity {
                 listItems);
         ((ListView) findViewById(R.id.list)).setAdapter(adapter);
 
-        this.postUsecases.getPosts((String value) -> {
-            // load list
+        this.postUsecases.getPosts((ArrayList<PostModel> posts) -> {
+            for (int i = 0; i < posts.size(); i++) {
+                listItems.add(posts.get(i).title);
+            }
+            adapter.notifyDataSetChanged();
         });
     }
 }
